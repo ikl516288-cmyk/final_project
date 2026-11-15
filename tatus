@@ -1,0 +1,410 @@
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/LICENSE b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/LICENSE[m
+[1mdeleted file mode 100644[m
+[1mindex 8d94780..0000000[m
+[1m--- a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/LICENSE[m
+[1m+++ /dev/null[m
+[36m@@ -1,73 +0,0 @@[m
+[31m-MIT License[m
+[31m-[m
+[31m-Copyright (c) 2025 Unconventional-Vision-Lab-ZZU[m
+[31m-[m
+[31m-Permission is hereby granted, free of charge, to any person obtaining a copy[m
+[31m-of this software and associated documentation files (the "Software"), to deal[m
+[31m-in the Software without restriction, including without limitation the rights[m
+[31m-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell[m
+[31m-copies of the Software, and to permit persons to whom the Software is[m
+[31m-furnished to do so, subject to the following conditions:[m
+[31m-[m
+[31m-The above copyright notice and this permission notice shall be included in all[m
+[31m-copies or substantial portions of the Software.[m
+[31m-[m
+[31m-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR[m
+[31m-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,[m
+[31m-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE[m
+[31m-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER[m
+[31m-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,[m
+[31m-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE[m
+[31m-SOFTWARE.[m
+[31m-[m
+[31m-========================================================================[m
+[31m-DehazeFormer shared components[m
+[31m-========================================================================[m
+[31m-[m
+[31m-MIT License[m
+[31m-[m
+[31m-Copyright (c) 2022 IDKiro[m
+[31m-[m
+[31m-Permission is hereby granted, free of charge, to any person obtaining a copy[m
+[31m-of this software and associated documentation files (the "Software"), to deal[m
+[31m-in the Software without restriction, including without limitation the rights[m
+[31m-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell[m
+[31m-copies of the Software, and to permit persons to whom the Software is[m
+[31m-furnished to do so, subject to the following conditions:[m
+[31m-[m
+[31m-The above copyright notice and this permission notice shall be included in all[m
+[31m-copies or substantial portions of the Software.[m
+[31m-[m
+[31m-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR[m
+[31m-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,[m
+[31m-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE[m
+[31m-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER[m
+[31m-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,[m
+[31m-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE[m
+[31m-SOFTWARE.[m
+[31m-[m
+[31m-========================================================================[m
+[31m-Swin Transformer shared components[m
+[31m-========================================================================[m
+[31m-[m
+[31m-    MIT License[m
+[31m-[m
+[31m-    Copyright (c) Microsoft Corporation.[m
+[31m-[m
+[31m-    Permission is hereby granted, free of charge, to any person obtaining a copy[m
+[31m-    of this software and associated documentation files (the "Software"), to deal[m
+[31m-    in the Software without restriction, including without limitation the rights[m
+[31m-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell[m
+[31m-    copies of the Software, and to permit persons to whom the Software is[m
+[31m-    furnished to do so, subject to the following conditions:[m
+[31m-[m
+[31m-    The above copyright notice and this permission notice shall be included in all[m
+[31m-    copies or substantial portions of the Software.[m
+[31m-[m
+[31m-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR[m
+[31m-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,[m
+[31m-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE[m
+[31m-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER[m
+[31m-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,[m
+[31m-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE[m
+[31m-    SOFTWARE[m
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/README.md b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/README.md[m
+[1mdeleted file mode 100644[m
+[1mindex ee89346..0000000[m
+[1m--- a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/README.md[m
+[1m+++ /dev/null[m
+[36m@@ -1,152 +0,0 @@[m
+[31m-# DDPCFMD[m
+[31m-[m
+[31m-**Dual-Driven Physically Consistent Fusion for Multimodal Dehazing**[m
+[31m-[m
+[31m-Ziqin Xu, Guangpeng Li, Hao Liu, Hongru Zhao, Mingyang Chen, Hongzhao Li,[m
+[31m-Shaohui Jin, Mingyuan Jiu, and Mingliang Xu.[m
+[31m-[m
+[31m-Accepted by *IEEE Transactions on Multimedia*.[m
+[31m-[m
+[31m-DDPCFMD combines visible-light polarization (VLP), time-gated imaging (TGI),[m
+[31m-and long-wave infrared (LWIR) through physical parameter estimation and fusion.[m
+[31m-This repository contains the model, three-stage training code, and training[m
+[31m-settings from the research source.[m
+[31m-## Overview[m
+[31m-[m
+[31m-**Multimodal physical consistency and fusion framework**[m
+[31m-[m
+[31m-![Multimodal physical consistency and fusion framework](img/framework2.png)[m
+[31m-[m
+[31m-**Physics-and-data dual-driven dehazing pipeline**[m
+[31m-[m
+[31m-![Physics-and-data dual-driven dehazing pipeline](img/pipeline.png)[m
+[31m-[m
+[31m-## Dataset examples[m
+[31m-[m
+[31m-**syn-MH**: synthetic multimodal observations under dense and medium haze.[m
+[31m-[m
+[31m-![syn-MH under dense haze](img/syn-MH-dense.png)[m
+[31m-[m
+[31m-![syn-MH under medium haze](img/syn-MH-medium.png)[m
+[31m-[m
+[31m-**real-MH**: real-scene observations from the multimodal imaging system.[m
+[31m-[m
+[31m-![real-MH examples](img/real-MH.png)[m
+[31m-[m
+[31m-## Visual comparisons[m
+[31m-[m
+[31m-Comparison figures from the original project and paper:[m
+[31m-[m
+[31m-![Dehazing comparison: CE4](img/CE4.png)[m
+[31m-[m
+[31m-![Dehazing comparison: GE2](img/GE2.png)[m
+[31m-[m
+[31m-![Dehazing comparison: GE3](img/GE3.png)[m
+[31m-[m
+[31m-## Installation[m
+[31m-[m
+[31m-Use Python 3.10 or newer and a PyTorch build suitable for your device.[m
+[31m-Training data loading also requires NumPy and Pillow.[m
+[31m-[m
+[31m-```bash[m
+[31m-pip install -r requirements.txt[m
+[31m-```[m
+[31m-[m
+[31m-## Training data[m
+[31m-```text[m
+[31m-your_training_directory/[m
+[31m-  I_alpha/sample.npy       H x W x 9: three RGB polarization views[m
+[31m-  I_hat/sample.png         RGB total visible-light intensity[m
+[31m-  delta_I_hat/sample.png   RGB intensity times degree of polarization[m
+[31m-  P_A/sample.npy           Three-element airlight DoP vector[m
+[31m-  P_T/sample.png           RGB transmitted-light DoP[m
+[31m-  T/sample.png             RGB transmitted-light target[m
+[31m-  gated/sample.png         Grayscale TGI observation[m
+[31m-  ir_foggy/sample.png      Grayscale LWIR observation[m
+[31m-  A_infinity/sample.png    RGB airlight target[m
+[31m-  R/sample.png             RGB clear-radiance target[m
+[31m-```[m
+[31m-[m
+[31m-NPY values use the [0, 1] scale; PNG files use 8-bit values. The loader expands[m
+[31m-the airlight DoP vector spatially and resizes the image fields with antialiased[m
+[31m-bilinear interpolation.[m
+[31m-[m
+[31m-[m
+[31m-## Training[m
+[31m-[m
+[31m-The three configurations retain the training settings from the research source.[m
+[31m-The entry point selects the configuration matching `--stage` automatically;[m
+[31m-use `--config` to provide an edited copy.[m
+[31m-[m
+[31m-| Stage | Configuration | Epochs | Batch size | Initial learning rate |[m
+[31m-| --- | --- | --- | --- | --- |[m
+[31m-| Transmission estimation | [`transmission.json`](configs/transmission.json) | 400 | 9 | 0.0005 |[m
+[31m-| Radiance reconstruction | [`radiance.json`](configs/radiance.json) | 400 | 5 | 0.0001 |[m
+[31m-| Joint training | [`joint.json`](configs/joint.json) | 400 | 4 | 0.0005 |[m
+[31m-[m
+[31m-All stages use 240 x 320 inputs, Adam with `betas=[0.5, 0.999]`, AMSGrad,[m
+[31m-and zero weight decay. Each loss weight pair is `[L1, L2]`; stage-specific[m
+[31m-weights are defined in the corresponding configuration. Convolution weights[m
+[31m-are initialized from a zero-mean normal distribution with standard deviation 0.02,[m
+[31m-linear weights use Xavier uniform initialization, and their biases are zeroed[m
+[31m-before any checkpoint weights are loaded.[m
+[31m-[m
+[31m-The first two stages use `branch_decay`: at the end of each epoch after 300,[m
+[31m-`MultiplicativeLR` multiplies the **current** learning rate by `2.5 - epoch / 200`.[m
+[31m-The joint stage uses `constant`. This preserves the source schedule; the[m
+[31m-branch multiplier is applied cumulatively, rather than as a linear interpolation[m
+[31m-of the initial learning rate. The branch schedule is intended for 400 epochs[m
+[31m-and requires a total below 500 to keep its multiplier positive.[m
+[31m-[m
+[31m-Run from the repository root, replacing `PATH_TO_TRAIN_DATA` with your data path:[m
+[31m-[m
+[31m-```bash[m
+[31m-# Stage 1: transmission estimation[m
+[31m-python train.py --stage transmission --data-root PATH_TO_TRAIN_DATA --output-dir outputs/transmission[m
+[31m-[m
+[31m-# Stage 2: radiance reconstruction[m
+[31m-python train.py --stage radiance --data-root PATH_TO_TRAIN_DATA --output-dir outputs/radiance[m
+[31m-[m
+[31m-# Stage 3: joint training initialized from the two trained branches[m
+[31m-python train.py --stage joint --data-root PATH_TO_TRAIN_DATA --transmission-weights outputs/transmission/transmission-last.pth --radiance-weights outputs/radiance/radiance-last.pth --output-dir outputs/joint[m
+[31m-```[m
+[31m-[m
+[31m-[m
+[31m-Training saves `<stage>-last.pth` every `save_every` epochs and at the final[m
+[31m-epoch. To resume an interrupted run, keep the same configuration and provide[m
+[31m-`--resume`. To extend a completed run, increase `epochs` to the desired total;[m
+[31m-keep the optimizer, loss, and scheduler settings unchanged:[m
+[31m-[m
+[31m-```bash[m
+[31m-python train.py --stage joint --data-root PATH_TO_TRAIN_DATA --output-dir outputs/joint --resume outputs/joint/joint-last.pth[m
+[31m-```[m
+[31m-[m
+[31m-New outputs are ignored by Git. Checkpoints restore model, optimizer, scheduler,[m
+[31m-and epoch state, without promising identical random sample order. Only[m
+[31m-checkpoints created with this public naming scheme are supported.[m
+[31m-[m
+[31m-## Model interface[m
+[31m-[m
+[31m-```python[m
+[31m-from models import DDPCFMD[m
+[31m-[m
+[31m-model = DDPCFMD(image_size=(240, 320))[m
+[31m-# output = model(vlp, intensity, polarization_difference, lwir, tgi)[m
+[31m-```[m
+[31m-[m
+[31m-Inputs are aligned floating-point NCHW tensors on the [0, 1] scale, with[m
+[31m-9, 3, 3, 1, and 1 channels respectively. All inputs share batch size, spatial[m
+[31m-size, dtype, and device. Each spatial dimension must be at least 80 and divisible[m
+[31m-by 8. The output fields are `airlight_dop`, `transmission_dop`, `transmission`,[m
+[31m-`tgi_transmission`, `airlight`, and `radiance`, each shaped `(N, 3, H, W)`.[m
+[31m-Here, `transmission` is the transmitted-light image, not scalar transmittance.[m
+[31m-[m
+[31m-[m
+[31m-## Citation[m
+[31m-[m
+[31m-Please cite *Dual-Driven Physically Consistent Fusion for Multimodal Dehazing*,[m
+[31m-Ziqin Xu et al., accepted by *IEEE Transactions on Multimedia*. Final[m
+[31m-bibliographic details should follow the publisher's record when available.[m
+[31m-[m
+[31m-[m
+[31m-Project: [Unconventional Vision Lab, Zhengzhou University](https://github.com/Unconventional-Vision-Lab-ZZU/DDPCFMD).[m
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/configs/joint.json b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/configs/joint.json[m
+[1mdeleted file mode 100644[m
+[1mindex 282fb81..0000000[m
+[1m--- a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/configs/joint.json[m
+[1m+++ /dev/null[m
+[36m@@ -1,24 +0,0 @@[m
+[31m-{[m
+[31m-  "stage": "joint",[m
+[31m-  "image_size": [240, 320],[m
+[31m-  "batch_size": 4,[m
+[31m-  "epochs": 400,[m
+[31m-  "num_workers": 0,[m
+[31m-  "shuffle": true,[m
+[31m-  "optimizer": {[m
+[31m-    "lr": 0.0005,[m
+[31m-    "betas": [0.5, 0.999],[m
+[31m-    "weight_decay": 0.0,[m
+[31m-    "amsgrad": true[m
+[31m-  },[m
+[31m-  "lr_schedule": "constant",[m
+[31m-  "loss_weights": {[m
+[31m-    "airlight_dop": [2.0, 1.0],[m
+[31m-    "transmission_dop": [2.0, 1.0],[m
+[31m-    "transmission": [2.0, 1.0],[m
+[31m-    "tgi_transmission": [2.0, 1.0],[m
+[31m-    "airlight": [2.0, 1.0],[m
+[31m-    "radiance": [2.0, 1.0][m
+[31m-  },[m
+[31m-  "save_every": 10[m
+[31m-}[m
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/configs/radiance.json b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/configs/radiance.json[m
+[1mdeleted file mode 100644[m
+[1mindex b0dc0e9..0000000[m
+[1m--- a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/configs/radiance.json[m
+[1m+++ /dev/null[m
+[36m@@ -1,20 +0,0 @@[m
+[31m-{[m
+[31m-  "stage": "radiance",[m
+[31m-  "image_size": [240, 320],[m
+[31m-  "batch_size": 5,[m
+[31m-  "epochs": 400,[m
+[31m-  "num_workers": 0,[m
+[31m-  "shuffle": true,[m
+[31m-  "optimizer": {[m
+[31m-    "lr": 0.0001,[m
+[31m-    "betas": [0.5, 0.999],[m
+[31m-    "weight_decay": 0.0,[m
+[31m-    "amsgrad": true[m
+[31m-  },[m
+[31m-  "lr_schedule": "branch_decay",[m
+[31m-  "loss_weights": {[m
+[31m-    "airlight": [2.0, 1.0],[m
+[31m-    "radiance": [4.0, 2.0][m
+[31m-  },[m
+[31m-  "save_every": 10[m
+[31m-}[m
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/configs/transmission.json b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/configs/transmission.json[m
+[1mdeleted file mode 100644[m
+[1mindex de5c186..0000000[m
+[1m--- a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/configs/transmission.json[m
+[1m+++ /dev/null[m
+[36m@@ -1,22 +0,0 @@[m
+[31m-{[m
+[31m-  "stage": "transmission",[m
+[31m-  "image_size": [240, 320],[m
+[31m-  "batch_size": 9,[m
+[31m-  "epochs": 400,[m
+[31m-  "num_workers": 0,[m
+[31m-  "shuffle": true,[m
+[31m-  "optimizer": {[m
+[31m-    "lr": 0.0005,[m
+[31m-    "betas": [0.5, 0.999],[m
+[31m-    "weight_decay": 0.0,[m
+[31m-    "amsgrad": true[m
+[31m-  },[m
+[31m-  "lr_schedule": "branch_decay",[m
+[31m-  "loss_weights": {[m
+[31m-    "airlight_dop": [2.0, 1.0],[m
+[31m-    "transmission_dop": [2.0, 1.0],[m
+[31m-    "transmission": [4.0, 2.0],[m
+[31m-    "tgi_transmission": [2.0, 1.0][m
+[31m-  },[m
+[31m-  "save_every": 10[m
+[31m-}[m
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/CE4.png b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/CE4.png[m
+[1mdeleted file mode 100644[m
+[1mindex d1f1e51..0000000[m
+Binary files a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/CE4.png and /dev/null differ
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/GE2.png b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/GE2.png[m
+[1mdeleted file mode 100644[m
+[1mindex 2308a5b..0000000[m
+Binary files a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/GE2.png and /dev/null differ
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/GE3.png b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/GE3.png[m
+[1mdeleted file mode 100644[m
+[1mindex 641301c..0000000[m
+Binary files a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/GE3.png and /dev/null differ
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/framework2.png b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/framework2.png[m
+[1mdeleted file mode 100644[m
+[1mindex d0082a3..0000000[m
+Binary files a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/framework2.png and /dev/null differ
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/pipeline.png b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/pipeline.png[m
+[1mdeleted file mode 100644[m
+[1mindex fb71813..0000000[m
+Binary files a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/pipeline.png and /dev/null differ
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/real-MH.png b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/real-MH.png[m
+[1mdeleted file mode 100644[m
+[1mindex 6ec3ec4..0000000[m
+Binary files a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/real-MH.png and /dev/null differ
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/syn-MH-dense.png b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/syn-MH-dense.png[m
+[1mdeleted file mode 100644[m
+[1mindex 19f974c..0000000[m
+Binary files a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/syn-MH-dense.png and /dev/null differ
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/syn-MH-medium.png b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/syn-MH-medium.png[m
+[1mdeleted file mode 100644[m
+[1mindex 7c3681c..0000000[m
+Binary files a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/img/syn-MH-medium.png and /dev/null differ
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/models/__init__.py b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/models/__init__.py[m
+[1mdeleted file mode 100644[m
+[1mindex b7ab881..0000000[m
+[1m--- a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/models/__init__.py[m
+[1m+++ /dev/null[m
+[36m@@ -1,6 +0,0 @@[m
+[31m-"""DDPCFMD model and building blocks."""[m
+[31m-[m
+[31m-from .ddpcfmd import DDPCFMD, DDPCFMDOutput[m
+[31m-from .layers import CPRC, DFFM, DGU, EH, ESTB, FDFM, SPM[m
+[31m-[m
+[31m-__all__ = ["DDPCFMD", "DDPCFMDOutput", "ESTB", "FDFM", "SPM", "DGU", "CPRC", "EH", "DFFM"][m
+[1mdiff --git a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/models/ddpcfmd.py b/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/models/ddpcfmd.py[m
+[1mdeleted file mode 100644[m
+[1mindex 00327d5..0000000[m
+[1m--- a/Dual_Driven_consistent/DDPCFMD-main/DDPCFMD-main/models/ddpcfmd.py[m
+[1m+++ /dev/null[m
+[36m@@ -1,75 +0,0 @@[m
+[31m-"""Dual-Driven Physically Consistent Fusion for Multimodal Dehazing."""[m
+[31m-[m
+[31m-from typing import NamedTuple[m
+[31m-[m
+[31m-from torch import Tensor, nn[m
+[31m-[m
+[31m-from .radiance import RadianceReconstruction[m
+[31m-from .transmission import TransmissionEstimation[m
+[31m-[m
+[31m-[m
+[31m-class DDPCFMDOutput(NamedTuple):[m
+[31m-    """Polarization, transmission, airlight, and radiance estimates."""[m
+[31m-[m
+[31m-    airlight_dop: Tensor[m
+[31m-    transmission_dop: Tensor[m
+[31m-    transmission: Tensor[m
+[31m-    tgi_transmission: Tensor[m
+[31m-    airlight: Tensor[m
+[31m-    radiance: Tensor[m
+[31m-[m
+[31m-[m
+[31m-class DDPCFMD(nn.Module):[m
+[31m-    """Multimodal dehazing with aligned floating-point NCHW inputs.[m
+[31m-[m
+[31m-    Input channels: VLP 9, intensity 3, polarization difference 3, LWIR 1, TGI 1.[m
+[31m-    Values use the [0, 1] scale. Each spatial dimension must be at least 80[m
+[31m-    and divisible by 8; image_size is fixed at construction.[m
+[31m-    """[m
+[31m-[m
+[31m-    def __init__(self, image_size=(240, 320)):[m
+[31m-        super().__init__()[m
+[31m-        if ([m
+[31m-            not isinstance(image_size, (tuple, list))[m
+[31m-            or len(image_size) != 2[m
+[31m-            or any(type(size) is not int or size < 80 or size % 8 for size in image_size)[m
+[31m-        ):[m
+[31m-            raise ValueError("image_size must contain two multiples of 8, each at least 80.")[m
+[31m-        self.image_size = tuple(image_size)[m
+[31m-        self.transmi
