@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pth
+*.ckpt
+*.h5
+*.log
+data/
+datasets/
+outputs/
+runs/
+wandb/
+.venv/
+venv/
